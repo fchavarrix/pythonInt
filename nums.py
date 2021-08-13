@@ -1,0 +1,17 @@
+# def run():
+#     for i in range(1,101):
+#         print(f'{i} al cuadrado es: {i**2}')
+
+def run():
+#     squares = []
+#     for i in range(1,101):
+#         if i % 3 != 0:
+#             squares.append(i**2)
+#     print(squares)
+    print('metodo list comprehensions')
+    squares = [i**2 for i in range(1,101) if i % 3 != 0]
+    print(squares)
+
+
+if __name__ == '__main__':
+    run()
