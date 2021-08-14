@@ -74,10 +74,18 @@ DATA = [
 
 def run():
     all_pyhton_devs = [worker['name'] for worker in DATA if worker['language'] == 'python']
+    all_platzi_workers = [worker['name'] for worker in DATA if worker['organization'] == 'Platzi']
+    adults = list(filter(lambda worker: worker['age'] > 18, DATA))
+    adults = list(map(lambda worker: worker['name'], adults))
 
-    for i in all_pyhton_devs:
+    # for i in all_pyhton_devs:
+    #     print(i)
+
+    # for i in all_platzi_workers:
+    #     print(i)
+
+    for i in adults:
         print(i)
-    print('hola')
 
-if __name__ == '__main':
+if __name__ == '__main__':
     run()
