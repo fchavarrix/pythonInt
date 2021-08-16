@@ -71,36 +71,29 @@ DATA = [
     },
 ]
 
-
 def run():
-    # all_pyhton_devs = [worker['name'] for worker in DATA if worker['language'] == 'python']
-    all_pyhton_devs = list(filter(lambda worker: worker['language'] == 'python', DATA))
-    all_pyhton_devs = list(map(lambda worker: worker['name'], all_pyhton_devs))
 
-    # all_platzi_workers = [worker['name'] for worker in DATA if worker['organization'] == 'Platzi']
-    all_platzi_workers = list(filter(lambda worker: worker['organization'] == 'Platzi', DATA))
-    all_platzi_workers = list(map(lambda worker: worker['name'], all_platzi_workers))
+    # Comprehensions solutions
+    # all_python_devs = [worker["name"] for worker in DATA if worker["language"] == "python"]
+    # all_Platzi_workers = [worker["name"] for worker in DATA if worker["organization"] == "Platzi"]
+    # adults =  [worker["name"] for worker in DATA if worker["age"] > 18]
+    # old_people = list(map(lambda worker: worker | {"old": worker["age"] > 70}, DATA))
 
-    # adults = list(filter(lambda worker: worker['age'] > 18, DATA))
-    # adults = list(map(lambda worker: worker['name'], adults))
-    adults = [worker['name'] for worker in DATA if worker['age'] < 18]
-
-    # old_people = list(map(lambda worker: worker | {'old': worker['age'] > 70}, DATA)) #El simbolo | nos permite 
-    # concatenar un diccionario con otro
-    old_people = [{**worker, **{'old': worker['age'] > 70}} for worker in DATA]
+    # Challenge completed
+    all_python_devs = list(filter(lambda worker: worker["language"] == "python", DATA))
+    all_python_devs = list(map(lambda worker: worker["name"], all_python_devs))
     
+    all_Platzi_workers = list(filter(lambda worker: worker["organization"] == "Platzi", DATA))
+    all_Platzi_workers = list(map(lambda worker: worker["name"], all_Platzi_workers))
 
-    for i in old_people:
-        print(i)
+    adults = list(filter(lambda worker: worker["age"] > 18, DATA))
+    adults = list(map(lambda worker: worker["name"], adults))
 
-    # for i in all_platzi_workers:
-    #     print(i)
+    old_people = [worker | {"old": worker["age"] > 70} for worker in DATA]
 
-    # for i in adults:
-    #     print(i)
+    for worker in all_python_devs:
+        print(worker)
 
-    # for i in old_people:
-    #     print(i)
 
 if __name__ == '__main__':
     run()
